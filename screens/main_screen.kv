@@ -1,0 +1,19 @@
+Label:
+    id: counter_label
+    text: "Counter: {}".format(app.counter)
+
+Image:
+    source: 'assets/image.png'
+    size_hint: (1, 0.7)
+
+MDBoxLayout:
+    orientation: 'horizontal'
+    size_hint: (1, 0.2)
+
+    MDRaisedButton:
+        text: "Increment"
+        on_release: app.increment_counter()
+
+    MDRaisedButton:
+        text: "Decrement"
+        on_release: app.decrement_counter()

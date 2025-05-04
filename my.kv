@@ -1,0 +1,32 @@
+ScreenManager:
+    MainScreen:
+        id: mscreen
+       
+
+<MainScreen>:
+        
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDLabel:
+            id: counter_label
+            text: root.labeltxt
+            halign: "center"
+
+        Image:
+            source: 'image.png'
+            size_hint: (1, 0.7)
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        size_hint: (1, 0.2)
+
+        MDButton:
+            text: "Increment"
+            on_release: app.root.mscreen.ids.increment()
+
+        MDButton:
+            text: "Decrement"
+            on_release: app.root.mscreen.ids.decrement()
