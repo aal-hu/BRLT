@@ -20,27 +20,30 @@ class MainScreen(MDScreen):
 
     def load_counter(self):
         try:
-            with open('data/counter.txt', 'r') as file:
+            with open('counter.txt', 'r') as file:
                 self.counter = int(file.read())
         except (FileNotFoundError, ValueError):
             self.counter = 0
+            self.save_counter()
         #self.update_label()
 
     def update_label(self):
         self.labeltxt = 'Counter: '+str(self.counter)
 
     def increment(self):
-        self.counter += 1
+        if self.counter < 20:
+            self.counter += 1
         self.update_label()
         self.save_counter()
 
     def decrement(self):
-        self.counter -= 1
+        if self.counter > 0:
+            self.counter -= 1
         self.update_label()
         self.save_counter()
 
     def save_counter(self):
-        with open('data/counter.txt', 'w') as file:
+        with open('counter.txt', 'w') as file:
             file.write(str(self.counter))
   
 

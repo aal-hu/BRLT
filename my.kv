@@ -1,9 +1,7 @@
-ScreenManager:
-    MainScreen:
-        id: mscreen
-       
+    
 
 <MainScreen>:
+    name: "main"
         
     md_bg_color: app.theme_cls.backgroundColor
 
@@ -25,8 +23,8 @@ ScreenManager:
 
         MDButton:
             text: "Increment"
-            on_release: app.root.mscreen.ids.increment()
+            on_release: root.increment()
 
         MDButton:
             text: "Decrement"
-            on_release: app.root.mscreen.ids.decrement()
+            on_release: root.decrement()
