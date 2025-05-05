@@ -1,8 +1,10 @@
+import os
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.utils import platform
+from kivymd.uix.filemanager import MDFileManager
 
 if platform == "android":
     from android.permissions import request_permissions, Permission
@@ -10,14 +12,31 @@ if platform == "android":
 
 
 class MainScreen(MDScreen):
+    bg_source = "image.png"
+    labeltxt = StringProperty()    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.counter = 0
         self.load_counter()
         self.update_label()
-    
-    labeltxt = StringProperty()
+        self.file_manager = MDFileManager(
+            exit_manager=self.exit_manager,
+            select_path=self.select_path,
+            ext=[".png", ".jpg", ".jpeg"],
+            preview=True
+        )
 
+    def open_file_manager(self):
+        start_path = os.path.expanduser("~")  # kezdőkönyvtár
+        self.file_manager.show(start_path)
+
+    def select_path(self, path: str):
+        self.ids.bg_image.source = path
+        self.exit_manager()
+
+    def exit_manager(self, *args):
+        self.file_manager.close()
+   
     def load_counter(self):
         try:
             with open('counter.txt', 'r') as file:

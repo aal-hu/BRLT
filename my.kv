@@ -11,20 +11,29 @@
         MDLabel:
             id: counter_label
             text: root.labeltxt
-            halign: "center"
+            font_style: "Display"
+            role: "medium"
+            halign: "auto"
 
         Image:
-            source: 'image.png'
+            id: bg_image
+            source: root.bg_source
             size_hint: (1, 0.7)
 
     MDBoxLayout:
         orientation: 'horizontal'
         size_hint: (1, 0.2)
 
-        MDButton:
-            text: "Increment"
+        MDFabButton:
+            icon: "plus"
+            #size: "large"
             on_release: root.increment()
-
-        MDButton:
-            text: "Decrement"
+        MDFabButton:
+            icon: "folder"
+            #size: "large"            
+            on_release: root.open_file_manager()
+        MDFabButton:
+            icon: "minus"
+            #size: "large"            
             on_release: root.decrement()
+
