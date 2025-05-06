@@ -73,7 +73,7 @@ class MainScreen(MDScreen):
 
 class MyApp(MDApp):
     def build(self):
-        self.theme_cls.primary_palette = "BlueGray"
+        self.theme_cls.primary_palette = "Green"
         return Builder.load_string(KV)
 
 

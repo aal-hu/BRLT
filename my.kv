@@ -13,27 +13,28 @@
             text: root.labeltxt
             font_style: "Display"
             role: "medium"
-            halign: "auto"
+            halign: "center"
+            size_hint: (1, 0.2)
+        
+        MDDivider:
 
         Image:
             id: bg_image
-            source: root.bg_source
-            size_hint: (1, 0.7)
+            size_hint: (1, 0.5)
 
     MDBoxLayout:
         orientation: 'horizontal'
-        size_hint: (1, 0.2)
+        size_hint: (1, 0.3)
+        padding: dp(40)
+        spacing: dp(140)
 
         MDFabButton:
             icon: "plus"
-            #size: "large"
             on_release: root.increment()
         MDFabButton:
             icon: "folder"
-            #size: "large"            
             on_release: root.open_file_manager()
         MDFabButton:
             icon: "minus"
-            #size: "large"            
             on_release: root.decrement()
 
