@@ -5,28 +5,35 @@
         
     md_bg_color: app.theme_cls.backgroundColor
 
-    MDBoxLayout:
-        orientation: 'vertical'
+    #MDBoxLayout:
+    MDFloatLayout:    
+        #orientation: 'vertical'
 
         MDLabel:
             id: counter_label
             text: root.labeltxt
             font_style: "Display"
             role: "medium"
-            halign: "center"
+            #halign: "center"
             size_hint: (1, 0.2)
+            pos_hint: {"x": 0.05, "top": 1}
+            
         
         MDDivider:
 
-        Image:
+        FitImage:
             id: bg_image
-            size_hint: (1, 0.5)
+            allow_strech: True
+            keep_ratio: True
+            radius: [dp(10),dp(10),dp(10),dp(10)]
+            size_hint: (0.9, 0.6)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
     MDBoxLayout:
         orientation: 'horizontal'
         size_hint: (1, 0.3)
         padding: dp(40)
-        spacing: dp(140)
+        spacing: dp(70)
 
         MDFabButton:
             icon: "plus"

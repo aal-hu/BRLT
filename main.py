@@ -1,5 +1,5 @@
 import os
-from kivymd.app import MDApp
+from kivymd.app import MDApp as App
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
 from kivy.properties import StringProperty
@@ -91,7 +91,7 @@ class MainScreen(MDScreen):
             file.write(str(self.counter))
   
 
-class MyApp(MDApp):
+class MyApp(App):
     def __init__(self, **kwargs):
         super(MyApp, self).__init__(**kwargs)
 
